@@ -1,3 +1,15 @@
+## 使用NVIDIA docker shm-size稍微大些
+
+下载对应cuda版本号的NVIDIA-pytorch镜像，我这里cuda是11.4,对应版本是21.07
+
+docker pull nvcr.io/nvidia/pytorch:21.07-py3
+
+docker run  --gpus all -it --shm-size="8g" -v /home/wsk/data:/root/data  nvcr.io/nvidia/pytorch:21.07-py3 bash
+
+进入后执行main.py 开始训练
+
+![image](https://github.com/wangshankun/cifar10-100-fast-training/test.jpg)
+
 # CIFAR10-100-fast-training
 
 This implementation is for cifar10/100 fast training base on (https://github.com/davidcpage/cifar10-fast)
@@ -13,8 +25,6 @@ You can run 70 epochs rather than 350 (https://github.com/kuangliu/pytorch-cifar
         numpy
         
 ### Results:
-
-Those models  from https://github.com/weiaicunzai/pytorch-cifar100/tree/master/models and https://github.com/kuangliu/pytorch-cifar/tree/master/models
 | Model  | CIFAR-10 accuracy|CIFAR-100 accuracy|
 | ------------- | ------------- |  ------------- | 
 |ResNet18|95.32|76.75

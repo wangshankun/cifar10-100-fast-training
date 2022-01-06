@@ -60,7 +60,7 @@ class Batches():
         self.batch_size = batch_size
         self.set_random_choices = set_random_choices
         self.dataloader = torch.utils.data.DataLoader(
-            dataset, batch_size=batch_size, num_workers=num_workers, pin_memory=True, shuffle=shuffle, drop_last=drop_last
+            dataset, batch_size=batch_size, num_workers=num_workers, pin_memory=False, shuffle=shuffle, drop_last=drop_last
         )
         #self.resize_func = torch.nn.Upsample(scale_factor=scale_factor, mode='bilinear')
     def __iter__(self):
